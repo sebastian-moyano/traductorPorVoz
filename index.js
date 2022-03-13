@@ -12,16 +12,16 @@ if (!('webkitSpeechRecognition' in window)) {
   }
 recognition.lang = "es-ES"
 
-recognition.interimResults = false;
+recognition.interimResults = true
 
 recognition.onstart=function(){
     console.log("el microfono funciona")
 }
 
 recognition.onresult = (event) =>{
-    const results = event.results;
-    const frase = results[results.length - 1][0].transcript;
-    texto.value += frase;
+    const results = event.results
+    const frase = results[results.length - 1][0].transcript
+    texto.value += frase
 
 }
 
