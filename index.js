@@ -5,8 +5,13 @@ const texto = document.getElementById("texto");
 
 let Reconocimiento = window.webkitSpeechRecognition || window.SpeechRecognition
 let recognition = new Reconocimiento() 
+if (!('webkitSpeechRecognition' in window)) {
+    alert("¡API no soportada!")
+  }else{
+    recognition.continuous = true
+  }
 recognition.lang = "es-ES"
-recognition.continuous = true;
+
 recognition.interimResults = false;
 
 recognition.onstart=function(){
